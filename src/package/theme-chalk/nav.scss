@@ -1,0 +1,225 @@
+@use "./src/mixins/mixins.scss" as *;
+@use "./src/common/var.scss" as *;
+@use "./src/color/index.scss" as *;
+@use "sass:map";
+
+$component: "nav";
+$navType-default: "default";
+$navType-tabbar: "tabbar";
+$navType-iconOnly: "iconOnly";
+
+@include buildContainer($component) {
+  cursor: pointer;
+  height: auto;
+  width: 100%;
+  border: none;
+  border-radius: 0px;
+  margin: 0;
+  padding: $padding-default-h 0;
+  transition: all 0.4s ease-in-out;
+  .v-enter-active,
+  .v-leave-active {
+    transition:  all 0.4s ease-in-out;
+  }
+
+  .v-enter-from{
+    transform: translateX(-60px);
+  }
+  .v-leave-to {
+    opacity: 0;
+  }
+  @at-root {
+    @include when($component, $navType-default) {
+      font-size: $font-default-size-flex;
+      padding: $padding-default-h $padding-default-w;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .rb-icon {
+        font-size: 16px;
+      }
+      @include buildWrap($component, "item") {
+        text-align: center;
+        line-height: 46px;
+        height: 46px;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+    @include when($component, $navType-tabbar) {
+      position: relative;
+      font-size: $font-default-size-flex;
+      padding: $padding-default-h 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include buildWrap($component, "tItem") {
+        position: relative;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 46px;
+        overflow: visible;
+        transition: all 0.4s ease-in-out;
+
+        @include buildWrap("item", "icon") {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: 0;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          .rb-icon {
+            font-size: 24px;
+            margin: 0;
+          }
+        }
+
+        @include buildWrap("item", "name") {
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          z-index: 1;
+          opacity: 0;
+        }
+      }
+      @include when($component, "active") {
+        transition: all 0.4s ease-in-out;
+
+        @include buildWrap("item", "icon") {
+          transition: all 0.4s ease-in-out;
+          top: -6px;
+        }
+        @include buildWrap("item", "name") {
+          transition: all 0.4s ease-in-out;
+          opacity: 1;
+        }
+      }
+      @include build($component, "shower") {
+        position: absolute;
+        transition: all 0.4s ease-in-out;
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        top: 0px;
+        transform: translate(-50%, -50%);
+      }
+    }
+    @include when($component, $navType-iconOnly) {
+      position: relative;
+      font-size: $font-default-size-flex;
+      padding: $padding-heavy-h 0;
+      width: 60px;
+      height: calc(100% - 2*$padding-heavy-h);
+      .rb-icon {
+        font-size: 24px;
+        margin: 0;
+      }
+      .rb-clock_container {
+        transform: scale(0.9);
+      }
+      @include buildWrap($component, "flex") {
+        position: absolute;
+        top: 0;
+        left: 60px;
+        height: 100%;
+        width: 260px;
+        transition: all 0.4s ease-in-out;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        z-index: 100;
+        .rb-icon {
+          font-size: 12px;
+        }
+      }
+      @include buildWrap($component, "top") {
+        position: absolute;
+        top: 0;
+        left: 0;
+        // transform: translate(-50%,-50%);
+        height: calc(100% - 120px);
+        width: 100%;
+        @include buildWrap($component, "iItem") {
+          transition: all 0.4s ease-in-out;
+          height: 12.5%;
+          min-height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      @include buildWrap($component, "bottom") {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: flex-start;
+        align-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 120px;
+        width: 100%;
+        .rb-icon {
+          font-size: 24px;
+        }
+        @include build($component, "flex") {
+          height: 16px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        }
+      }
+    }
+
+    @each $type in $theme-types {
+      @include when($component, $type) {
+        color: map-get($font-colors, $type);
+        background-color: map-get($colors, $type);
+        box-shadow: 0px 0px 1px 2px map-get($shadow-colors, $type, "deep"),
+          0px 0px 1px 1px map-get($shadow-colors, $type, "weak");
+        @include buildWrap($component, "item") {
+          &:hover {
+            background-color: map-get($shadow-colors, $type, "deeper");
+            font-size: 3vh;
+            .rb-text_container {
+              filter: brightness(1.25);
+            }
+          }
+        }
+        @include buildWrap($component, "tItem") {
+          &:hover {
+            background-color: map-get($shadow-colors, $type, "deeper");
+            font-size: 3vh;
+            .rb-text_container {
+              filter: brightness(1.25);
+            }
+          }
+        }
+        @include buildWrap($component, "iItem") {
+          &:hover {
+            background-color: map-get($shadow-colors, $type, "deeper");
+          }
+        }
+        @include build($component, "flex") {
+          background-color: map-get($shadow-colors, $type, "deep");
+        }
+        @include buildWrap($component, "flex") {
+          background-color: map-get($colors, $type);
+          box-shadow: 0px 0px 1px 2px map-get($shadow-colors, $type, "deep"),
+            0px 0px 1px 1px map-get($shadow-colors, $type, "weak");
+        }
+        @include build($component, "shower") {
+          background-color: map-get($shadow-colors, $type, "deeper");
+          border: 4px solid map-get($colors, $type);
+        }
+      }
+    }
+  }
+}

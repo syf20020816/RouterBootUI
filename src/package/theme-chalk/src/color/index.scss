@@ -1,0 +1,6 @@
+@use 'sass:color';
+@use 'sass:string';
+
+@function rgbAlpha($color,$alpha){
+  @return color.rgba($color,$alpha);
+}

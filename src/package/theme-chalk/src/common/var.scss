@@ -1,0 +1,175 @@
+/**
+* ============================================
+* @author:syf20020816@outlook.com
+* @since:20230330
+* @version:1.0.0
+* @type:scss
+* @description:定义全局使用的变量
+* ============================================
+*/
+
+@use 'sass:map';
+
+//颜色主题类型
+$theme-types: 'primary', 'success', 'warning', 'error', 'info', 'dark';
+$l:'large';
+$m:'default';
+$s:'small';
+
+$colors: () !default;
+
+$colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #192227,
+    'success': #97cd47,
+    'warning': #f8805d,
+    'error': #ec5e65,
+    'info': #788a93,
+    'dark':#21282c,
+  ),
+  $colors
+);
+
+$color-white:map.get($colors,'white') !default;
+$color-black:map.get($colors,'black') !default;
+$color-primary:map.get($colors,'primary') !default;
+$color-success:map.get($colors,'success') !default;
+$color-waring:map.get($colors,'warning') !default;
+$color-error:map.get($colors,'error') !default;
+$color-info:map.get($colors,'info') !default;
+
+$dark:() !default;
+$dark:map.deep-merge(
+  (
+    'main':#192227,
+    'bg':#192227,
+    'weak':#192227a0,
+    'trans':#1a272dbb
+  ),
+  $dark
+);
+
+$dark-main:map.get($colors,'main') !default;
+$dark-bg:map.get($colors,'bg') !default;
+$dark-weak:map.get($colors,'weak') !default;
+$dark-trans:map.get($colors,'trans') !default;
+
+$font-colors: () !default;
+
+$font-colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #667e8b,
+    'success': #daf4d0,
+    'warning': #eacac0,
+    'error': #f6c6c8,
+    'info': #c7d1d6,
+    'dark':#4c575e,
+  ),
+  $font-colors
+);
+
+$border-colors:() !default;
+
+$border-colors: map.deep-merge(
+  (
+    'primary': (
+      'deep':#192227,
+      'weak':#7894a3,
+    ),
+    'success': (
+      'deep':#5c8918,
+      'weak':#d5edcc,
+    ),
+    'warning': (
+      'deep':#f8805d,
+      'weak':#eacac0,
+    ),
+    'error': (
+      'deep':#fc8289,
+      'weak':#f6c6c8,
+    ),
+    'info': (
+      'deep':#788a93,
+      'weak':#acb5b9,
+    ),
+    'dark':(
+      'deep':#21282c,
+      'weak':#4c575e,
+    ),
+  ),
+  $border-colors
+);
+
+
+$shadow-colors:() !default;
+
+$shadow-colors: map.deep-merge(
+  (
+    'primary': (
+      'deeper':#0c1317,
+      'deep':#10181c,
+      'weak':#7894a3,
+    ),
+    'success': (
+      'deeper':#8ec43e,
+      'deep':#7fbb66,
+      'weak':#e2f7da,
+    ),
+    'warning': (
+      'deeper':#f4734c,
+      'deep':#e8724e,
+      'weak':#f7ccbe,
+    ),
+    'error': (
+      'deeper':#e24e55,
+      'deep':#dd424a,
+      'weak':#f6c6c8,
+    ),
+    'info': (
+      'deeper':#677e89,
+      'deep':#677e89,
+      'weak':#acb5b9,
+    ),
+    'dark':(
+      'deeper':#192024,
+      'deep':#182025,
+      'weak':#262c2f,
+    ),
+  ),
+  $shadow-colors
+);
+
+$font-default-size:16px;
+$font-default-size-flex:1vw;
+$font-small-size:12px;
+$font-small-size-flex:0.85vw;
+$font-large-size:19px;
+$font-large-size-flex:1.25vw;
+
+$padding-default-h:0.6vh;
+$padding-default-w:0.65vw;
+$padding-heavy-h:0.8vh;
+$padding-heavy-w:0.85vw;
+
+$margin-default-h:0.5vh;
+$margin-default-w:0.5vw;
+$margin-heavy-h:0.8vh;
+$margin-heavy-w:0.85vw;
+
+$padding-default-common:10px;
+$margin-default-common:10px;
+$padding-heavy-common:14px;
+$margin-heavy-common:14px;
+// $padding-default-h-flex:0.5vh;
+// $padding-default-w-flex:0.5vw;
+// $padding-heavy-h-flex:0.8vh;
+// $padding-heavy-w-flex:0.85vw;
+
+// $margin-default-h-flex:0.5vh;
+// $margin-default-w-flex:0.5vw;
+// $margin-heavy-h-flex:0.8vh;
+// $margin-heavy-w-flex:0.85vw;
