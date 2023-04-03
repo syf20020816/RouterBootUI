@@ -2,11 +2,10 @@
   <div id="text-container">
     <div>
       <RBText fontSize="2.5vw">
-        Text 文字
+        Explain 解释注明
       </RBText>
       <div>
-        <RBText type="primary" fontSize="1.1vw">在RouterBoot-UI中文字主使用Aa 厚底黑字体,副用Yulong字体,允许任何个人与企业免费使用，包括全媒体商用用途，无需取得任
-          何书面授权,但禁止任何违法用途</RBText>
+        <RBText type="primary" fontSize="1.1vw">或许你想试试"双语"?</RBText>
       </div>
     </div>
 
@@ -17,24 +16,9 @@
         </RBText>
       </div>
       <div style="border: 2px dashed #192227; margin: 16px 30px 30px 0;padding: 16px;">
-        <div>
-          <RBText type="success">文字示例-success</RBText>
-        </div>
-        <div>
-          <RBText type="error">文字示例-error</RBText>
-        </div>
-        <div>
-          <RBText type="warning">文字示例-warning</RBText>
-        </div>
-        <div>
-          <RBText type="info">文字示例-info</RBText>
-        </div>
-        <div>
-          <RBText type="primary" size="small">文字示例-primary-small</RBText>
-        </div>
-        <div>
-          <RBText type="success" size="large">文字示例-success-large</RBText>
-        </div>
+        <RBExplain></RBExplain>
+        <RBExplain size="large" type="info" origin="你好" explain="hi bro"></RBExplain>
+        <RBExplain fontSize="20px" type="error" origin="中文" explain="zhong wen"></RBExplain>
       </div>
       <div style="margin: 16px 30px 30px 0;">
         <RBEditor :render-view="TextMd"></RBEditor>
@@ -99,13 +83,13 @@
 
 <script lang="ts">
 export default {
-  name: 'TextTest'
+  name: 'ExplainTest'
 }
 </script>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import TextMd from '../code/Text.md'
+import TextMd from '../code/Explain.md'
 
 const AttrData = reactive([
   {

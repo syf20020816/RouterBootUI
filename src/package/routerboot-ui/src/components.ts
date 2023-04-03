@@ -8,6 +8,11 @@ import RBClock from "../../components/clock/src/clock.vue";
 import RBFlexbox from "../../components/flexbox/src/flexbox.vue";
 import RBCode from "../../components/code/src/code.vue";
 import RBFlexboxItem from "../../components/flexbox/src/flexboxItem.vue";
+import RBCalc from "../../components/calc/src/calc.vue";
+import RBTableItem from "../../components/table/src/tableItem.vue";
+import RBTable from "../../components/table/src/table.vue";
+import RBEditor from "../../components/editor/src/editor.vue";
+import RBExplain from "../../components/explain/src/explain.vue";
 
 export const ComponentList = [
   RBText,
@@ -20,4 +25,9 @@ export const ComponentList = [
   RBFlexbox,
   RBFlexboxItem,
   RBCode,
+  RBCalc,
+  RBTableItem,
+  RBTable,
+  RBEditor,
+  RBExplain,
 ];

@@ -18,7 +18,10 @@ import NavTest from "../views/NavTest.vue";
 import ClockTest from "../views/ClockTest.vue";
 import FlexboxTest from "../views/FlexboxTest.vue";
 import CodeTest from "../views/CodeTest.vue";
-
+import TableTest from "../views/TableTest.vue";
+import CalcTest from "../views/CalcTest.vue";
+import EditorTest from "../views/EditorTest.vue";
+import ExplainTest from "../views/ExplainTest.vue";
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/text",
@@ -55,5 +58,21 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/code",
     component: CodeTest,
+  },
+  {
+    path: "/calc",
+    component: CalcTest,
+  },
+  {
+    path: "/table",
+    component: TableTest,
+  },
+  {
+    path: "/editor",
+    component: EditorTest,
+  },
+  {
+    path: "/explain",
+    component: ExplainTest,
   },
 ];

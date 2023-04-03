@@ -48,10 +48,10 @@ $component: "code";
         @include buildWrap($component, "code") {
           background-color: transparent;
           @include buildWrap($component, "row") {
-            
-            width: 28px;
+            min-width: 30px;
+            width: auto;
             min-height: calc(100% - 2 * $padding-default-h);
-            padding: $padding-default-h 0;
+            padding: $padding-default-h calc($padding-default-w / 2);
             background-color: map-get($shadow-colors, $type, "deep");
             @include build("row", "item") {
               height: auto;

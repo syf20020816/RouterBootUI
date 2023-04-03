@@ -2,11 +2,10 @@
   <div id="text-container">
     <div>
       <RBText fontSize="2.5vw">
-        Text 文字
+        Calc 计算
       </RBText>
       <div>
-        <RBText type="primary" fontSize="1.1vw">在RouterBoot-UI中文字主使用Aa 厚底黑字体,副用Yulong字体,允许任何个人与企业免费使用，包括全媒体商用用途，无需取得任
-          何书面授权,但禁止任何违法用途</RBText>
+        <RBText type="primary" fontSize="1.1vw">一个看似简易的计算小组件，但是只要你设置的公式正确，他将无所不能</RBText>
       </div>
     </div>
 
@@ -17,24 +16,7 @@
         </RBText>
       </div>
       <div style="border: 2px dashed #192227; margin: 16px 30px 30px 0;padding: 16px;">
-        <div>
-          <RBText type="success">文字示例-success</RBText>
-        </div>
-        <div>
-          <RBText type="error">文字示例-error</RBText>
-        </div>
-        <div>
-          <RBText type="warning">文字示例-warning</RBText>
-        </div>
-        <div>
-          <RBText type="info">文字示例-info</RBText>
-        </div>
-        <div>
-          <RBText type="primary" size="small">文字示例-primary-small</RBText>
-        </div>
-        <div>
-          <RBText type="success" size="large">文字示例-success-large</RBText>
-        </div>
+        <RBCalc :calcNum="3" :initValue="2" name="a" doCalc="res.value=parseInt(a0.value)+parseInt(a1.value)+parseInt(a2.value)"></RBCalc>
       </div>
       <div style="margin: 16px 30px 30px 0;">
         <RBEditor :render-view="TextMd"></RBEditor>
@@ -43,12 +25,12 @@
     <div>
       <div>
         <RBText fontSize="2vw">
-          API
+          Text-API
         </RBText>
       </div>
       <div>
         <RBText fontSize="1.5vw">
-          Attributes 属性
+          Text-Attributes 属性
         </RBText>
         <div>
           <RBTable :tableData="AttrData">
@@ -64,7 +46,7 @@
       </div>
       <div>
         <RBText fontSize="1.5vw">
-          Exposes 暴露事件
+          Text-Exposes 暴露事件
         </RBText>
         <div>
           <div>
@@ -79,7 +61,7 @@
       </div>
       <div>
         <RBText fontSize="1.5vw">
-          Slots 插槽
+          Text-Slots 插槽
         </RBText>
         <div>
           <div>
@@ -99,7 +81,7 @@
 
 <script lang="ts">
 export default {
-  name: 'TextTest'
+  name: 'CalcTest'
 }
 </script>
 

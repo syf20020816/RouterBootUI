@@ -26,7 +26,7 @@ $navType-iconOnly: "iconOnly";
     transform: translateX(-60px);
   }
   .v-leave-to {
-    opacity: 0;
+    transform: translate(-100%);
   }
   @at-root {
     @include when($component, $navType-default) {
@@ -120,7 +120,11 @@ $navType-iconOnly: "iconOnly";
         margin: 0;
       }
       .rb-clock_container {
-        transform: scale(0.9);
+        
+        transform: scale(0.86);
+        .rb-text_container {
+          font-size: 14px !important;
+        }
       }
       @include buildWrap($component, "flex") {
         position: absolute;

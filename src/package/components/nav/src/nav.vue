@@ -36,7 +36,7 @@
         <slot name="navBox">
           <RBFlexbox :type="props.type">
             <template #flexItem>
-              <RBFlexboxItem :name="item.name" v-for="item in props.navNodeList" :key="item.id"></RBFlexboxItem>
+              <RBFlexboxItem :name="item.name" v-for="item in props.navNodeList" :key="item.id" :type="props.type"></RBFlexboxItem>
             </template>
           </RBFlexbox>
         </slot>

@@ -13,9 +13,11 @@
         </RBText>
       </div>
       <div :class="nameBuilder.buildWrap(componentName,'details')">
-        <RBText :type="props.type" size="small">
-          {{ props.description }}
-        </RBText>
+        <slot name="content">
+          <RBText :type="props.type" size="small">
+            {{ props.description }}
+          </RBText>
+        </slot>
       </div>
     </div>
     <div :class="nameBuilder.buildWrap(componentName,'bottom')">
@@ -44,9 +46,11 @@
         </RBText>
       </div>
       <div :class="nameBuilder.buildWrap(componentName,'details')">
-        <RBText :type="props.type" size="small">
-          {{ props.description }}
-        </RBText>
+        <slot name="content">
+          <RBText :type="props.type" size="small">
+            {{ props.description }}
+          </RBText>
+        </slot>
       </div>
     </div>
   </div>

@@ -11,11 +11,13 @@
                 <template #content>
                   <ol>
                     <li v-for="item,index in componentList" :key="index" @click="toPage(item.uri)">
-                      {{ item.name }}
+                      <RBText :type="theme">{{ item.name }}</RBText>
                     </li>
                   </ol>
                 </template>
               </RBFlexboxItem>
+              <RBFlexboxItem :name="navList[3].name" content=""></RBFlexboxItem>
+              <RBFlexboxItem :name="navList[4].name" content="去GitHub仓库看看源码-->"></RBFlexboxItem>
             </template>
           </RBFlexbox>
         </template>
@@ -37,6 +39,7 @@ export default {
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
+const theme = ref('primary')
 const router = useRouter()
 const navList = reactive([
   {
@@ -53,6 +56,16 @@ const navList = reactive([
     id: 2,
     name: 'component-组件',
     icon: 'rb-icon-layer-group '
+  },
+  {
+    id: 3,
+    name: '一键更改主题色',
+    icon: 'rb-icon-process '
+  },
+  {
+    id: 4,
+    name: 'Github!',
+    icon: 'rb-icon-icon-test76  '
   }
 ])
 const componentList = reactive([
@@ -91,6 +104,22 @@ const componentList = reactive([
   {
     name: 'code-代码',
     uri: '/code'
+  },
+  {
+    name: 'editor-编辑器(code增强)',
+    uri: '/editor'
+  },
+  {
+    name: 'table-表格',
+    uri: '/table'
+  },
+  {
+    name: 'calc-计算',
+    uri: '/calc'
+  },
+  {
+    name: 'explain-注明',
+    uri: '/explain'
   }
 ])
 
