@@ -24,6 +24,7 @@ import EditorTest from "../views/EditorTest.vue";
 import ExplainTest from "../views/ExplainTest.vue";
 import Index from "../views/Index.vue";
 import ContainerTest from "../views/ContainerTest.vue";
+import AbbrTest from "../views/AbbrTest.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -85,5 +86,9 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/container",
     component: ContainerTest,
+  },
+  {
+    path: "/abbr",
+    component: AbbrTest,
   },
 ];

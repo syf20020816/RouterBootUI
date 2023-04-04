@@ -24,6 +24,14 @@
         <RBButton :type="theme">How To Install</RBButton>
         <RBButton :type="theme">More Repositories</RBButton>
       </div>
+      <div style="height: 25%;text-align: center;">
+        <div>
+          <RBText :type="theme">如果您有什么建议欢迎联系作者:syf20020816@outlook.com</RBText>
+        </div>
+        <div>
+          <RBText :type="theme">If you have any suggestions, please connect to the author:syf20020816@outlook.com</RBText>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -87,10 +95,11 @@ let theme = computed(() => {
       padding: 0 20px;
     }
     .btns {
-      height: 60%;
+      height: 35%;
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 100%;
       .rb-button_container {
         margin: 0 40px;

@@ -136,6 +136,10 @@ const componentList = reactive([
   {
     name: 'container-容器',
     uri: '/container'
+  },
+  {
+    name: 'abbr-缩写',
+    uri: '/abbr'
   }
 ])
 

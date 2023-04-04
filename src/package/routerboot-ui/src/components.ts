@@ -14,6 +14,7 @@ import RBTable from "../../components/table/src/table.vue";
 import RBEditor from "../../components/editor/src/editor.vue";
 import RBExplain from "../../components/explain/src/explain.vue";
 import RBContainer from "../../components/container/src/container.vue";
+import RBAbbr from "../../components/abbr/src/abbr.vue";
 
 export const ComponentList = [
   RBText,
@@ -32,4 +33,5 @@ export const ComponentList = [
   RBEditor,
   RBExplain,
   RBContainer,
+  RBAbbr,
 ];
