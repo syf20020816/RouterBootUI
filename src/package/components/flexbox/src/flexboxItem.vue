@@ -51,8 +51,8 @@ const props = defineProps({
     default: 'this is flexbox content you can define it yourself!'
   },
   id: {
-    type: Number,
-    default: 0
+    type: String,
+    default: '0'
   }
 })
 

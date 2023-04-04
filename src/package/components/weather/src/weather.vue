@@ -23,7 +23,7 @@
           {{ props.value }}
         </RBText>
       </div>
-      <RBButton round :type="props.type" :size="props.size" @click="emits('click')">
+      <RBButton round :type="props.type" :size="props.size" @click="emits('check')">
         <RBIcon :type="props.type" :size="props.size" icon="rb-icon-ziyuan"></RBIcon>
         {{props.btn}}
       </RBButton>
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div :class="nameBuilder.buildWrap(componentName,'bottom')">
-        <RBButton round :type="props.type" :size="props.size" @click="emits('click')">
+        <RBButton round :type="props.type" :size="props.size" @click="emits('check')">
           <RBIcon :type="props.type" :size="props.size" icon="rb-icon-ziyuan"></RBIcon>
           {{props.btn}}
         </RBButton>
@@ -78,7 +78,7 @@
       </svg>
     </div>
     <div :class="nameBuilder.buildWrap(componentName,'bottom')">
-      <RBIcon :type="props.type" :size="props.size" icon="rb-icon-ziyuan" @click="emits('click')"></RBIcon>
+      <RBIcon :type="props.type" :size="props.size" icon="rb-icon-ziyuan" @click="emits('check')"></RBIcon>
     </div>
 
   </div>
@@ -100,7 +100,7 @@ import { RBButton } from '../../button'
 import { getWeather } from './weather'
 
 const componentName = 'weather'
-const emits = defineEmits(['click', 'get'])
+const emits = defineEmits(['check', 'get'])
 
 const props = defineProps({
   position: {

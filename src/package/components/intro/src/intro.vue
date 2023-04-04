@@ -21,10 +21,10 @@
       </div>
     </div>
     <div :class="nameBuilder.buildWrap(componentName,'bottom')">
-      <RBButton :type="props.type" style="width: 8vw;">
+      <RBButton :type="props.type" style="width: 8vw;" @click="emits('detail')">
         Details
       </RBButton>
-      <RBButton :type="props.type" style="width: 8vw;">
+      <RBButton :type="props.type" style="width: 8vw;" @click="emits('msg')">
         Message
       </RBButton>
       <div :class="nameBuilder.buildWrap(componentName,'icons')">
@@ -89,6 +89,7 @@ import { RBIcon } from '../../icon'
 import { RBText } from '../../text'
 const componentName = 'introduction'
 
+const emits = defineEmits(['msg', 'detail'])
 const props = defineProps({
   sex: {
     type: String as PropType<Sex>,
@@ -108,7 +109,7 @@ const props = defineProps({
   },
   description: {
     type: String,
-    default: 'A Java / Vue Engineer'
+    default: 'A Java / Vue Developer'
   }
 })
 

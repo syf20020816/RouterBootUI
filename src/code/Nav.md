@@ -1,7 +1,36 @@
+```vue
 <template>
-  <div id="app">
-    <RBContainer :type="theme">
-
+    <div style="height: 100px;width: 86%;">
+      <RBNav></RBNav>
+    </div>
+    <div style="height: 100px;width: 86%;">
+      <RBNav type="info"></RBNav>
+    </div>
+    <div style="height: 100px;width: 86%;">
+      <RBNav type="error"></RBNav>
+    </div>
+    <div style="height: 100px;width: 86%;">
+      <RBNav type="success"></RBNav>
+    </div>
+    <div style="height: 100px;width: 86%;">
+      <RBNav type="warning"></RBNav>
+    </div>
+    <div style="height: 100px;width: 86%;">
+      <RBNav type="dark"></RBNav>
+    </div>
+    <div style="height: 100px;width: 56%;">
+      <RBNav type="info" navType="tabbar"></RBNav>
+    </div>
+    <div style="height: 100px;width: 56%;">
+      <RBNav type="warning" navType="tabbar"></RBNav>
+    </div>
+    <div style="height: 520px;width: 40%;padding: 20px 0;">
+      <RBNav type="warning" navType="iconOnly"></RBNav>
+    </div>
+    <div style="height: 560px;width: 40%;padding: 20px 0;">
+      <RBNav type="primary" navType="iconOnly"></RBNav>
+    </div>
+<!-- you can even build a nav like this -->
       <div style="width:90px;height: 100vh;">
         <RBNav :type="theme" navType="iconOnly" :navNodeList="navList" @click="toNavPage">
           <template #navBox>
@@ -28,21 +57,9 @@
             </RBFlexbox>
           </template>
         </RBNav>
-
       </div>
-      <div style="width:calc(100% - 90px);height: 95vh;padding: 2vh 0;overflow: scroll;">
-        <router-view></router-view>
-      </div>
-
-    </RBContainer>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  name: 'App'
-}
-</script>
 
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue'
@@ -53,6 +70,44 @@ let theme = computed(() => {
   return store.theme[store.current]
 })
 const router = useRouter()
+export type NavType = "default" | "tabbar" | "iconOnly";
+
+export interface NavNode {
+  id: string | number;
+  name: string;
+  icon?: string;
+  content?: string;
+}
+
+export const defalutNavNode: Array<NavNode> = [
+  {
+    id: 0,
+    name: "Home",
+    icon: "rb-icon-home",
+    content: "this is a nav content",
+  },
+  {
+    id: 1,
+    name: "WorkSpace",
+    icon: "rb-icon-applicationgroup",
+  },
+  {
+    id: 2,
+    name: "Square",
+    icon: "rb-icon-smile-fill",
+  },
+  {
+    id: 3,
+    name: "User",
+    icon: "rb-icon-wode",
+  },
+  {
+    id: 4,
+    name: "Settings",
+    icon: "rb-icon-cog",
+  },
+];
+
 const navList = reactive([
   {
     id: 0,
@@ -148,23 +203,11 @@ const toNavPage = (item: any) => {
     case 0:
       toPage('/')
       break
-    case 3:
-      store.changeTheme()
-      break
+
     default:
       break
   }
 }
 </script>
 
-<style lang="scss" scoped>
-#app {
-  height: 100vh;
-  width: 100vw;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>
+```

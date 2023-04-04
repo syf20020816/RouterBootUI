@@ -2,10 +2,10 @@
   <div id="text-container">
     <div>
       <RBText fontSize="2.5vw" :type="theme">
-        Button 按钮
+        Container 容器
       </RBText>
       <div>
-        <RBText :type="theme" fontSize="1.1vw">按钮组件使用方式同原始button按钮</RBText>
+        <RBText :type="theme" fontSize="1.1vw">Container作为一个具有fade动画效果的容器组件使用flex布局,您可以对其进行再次封装让你的组件也具备RouterBoot-UI的一些特性,例如实现一键变色</RBText>
       </div>
     </div>
 
@@ -16,19 +16,10 @@
         </RBText>
       </div>
       <div style="border: 2px dashed #192227; margin: 16px 30px 30px 0;padding: 16px;">
-        <RBButton round>测试按钮-test</RBButton>
-        <RBButton type="primary">测试按钮-test</RBButton>
-        <RBButton type="success">测试按钮-test</RBButton>
-        <RBButton round type="warning">测试按钮-test</RBButton>
-        <RBButton round type="error">测试按钮-test</RBButton>
-        <RBButton type="info">测试按钮-test</RBButton>
-        <RBButton type="dark" icon="rb-icon-hezuo">测试按钮-test</RBButton>
-        <RBButton type="dark" icon="rb-icon-hezuo"></RBButton>
-        <RBButton type="dark" icon="rb-icon-hezuo" round size="large"></RBButton>
-        <RBButton type="info" icon="rb-icon-hezuo" circle size="small"></RBButton>
+        <RBContainer :type="theme">我只是个容器</RBContainer>
       </div>
       <div style="margin: 16px 30px 30px 0;">
-        <RBEditor :render-view="BtnMd" :type="theme"></RBEditor>
+        <RBEditor :render-view="TextMd" :type="theme"></RBEditor>
       </div>
     </div>
     <div>
@@ -90,13 +81,13 @@
 
 <script lang="ts">
 export default {
-  name: 'ButtonTest'
+  name: 'TextTest'
 }
 </script>
 
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue'
-import BtnMd from '../code/Button.md'
+import TextMd from '../code/Container.md'
 import { indexStore } from '../store/indexPinia'
 const store = indexStore()
 let theme = computed(() => {
@@ -109,34 +100,6 @@ const AttrData = reactive([
     type: 'String',
     able: 'primary|success|warning|error|info|dark',
     default: 'primary'
-  },
-  {
-    name: 'size',
-    des: '自适应按钮大小(default|large|small)flex根据容器自适应',
-    type: 'String',
-    able: 'default|large|small',
-    default: 'default'
-  },
-  {
-    name: 'icon',
-    des: '图标,详情请见RBIcon文档',
-    type: 'String',
-    able: '~任意RBIcon图标',
-    default: '-'
-  },
-  {
-    name: 'round',
-    des: '圆角按钮',
-    type: 'Boolean',
-    able: 'true|false',
-    default: 'false'
-  },
-  {
-    name: 'circle',
-    des: '在单图标下，会呈现圆形按钮',
-    type: 'Boolean',
-    able: 'true|false',
-    default: 'false'
   }
 ])
 const ExpData = reactive([

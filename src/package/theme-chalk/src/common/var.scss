@@ -40,6 +40,22 @@ $color-waring:map.get($colors,'warning') !default;
 $color-error:map.get($colors,'error') !default;
 $color-info:map.get($colors,'info') !default;
 
+$container-colors: () !default;
+
+$container-colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #263238,
+    'success': #a3d25b,
+    'warning': #f59072,
+    'error': #ea7278,
+    'info': #72848b,
+    'dark':#2f3a3f,
+  ),
+  $container-colors
+);
+
 $dark:() !default;
 $dark:map.deep-merge(
   (
@@ -67,7 +83,7 @@ $font-colors: map.deep-merge(
     'warning': #eacac0,
     'error': #f6c6c8,
     'info': #c7d1d6,
-    'dark':#4c575e,
+    'dark':#6d7478,
   ),
   $font-colors
 );

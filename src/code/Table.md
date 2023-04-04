@@ -11,7 +11,6 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-const code1 = ref()
 
 const tData = reactive([
   {

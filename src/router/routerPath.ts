@@ -22,6 +22,9 @@ import TableTest from "../views/TableTest.vue";
 import CalcTest from "../views/CalcTest.vue";
 import EditorTest from "../views/EditorTest.vue";
 import ExplainTest from "../views/ExplainTest.vue";
+import Index from "../views/Index.vue";
+import ContainerTest from "../views/ContainerTest.vue";
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/text",
@@ -74,5 +77,13 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/explain",
     component: ExplainTest,
+  },
+  {
+    path: "/",
+    component: Index,
+  },
+  {
+    path: "/container",
+    component: ContainerTest,
   },
 ];

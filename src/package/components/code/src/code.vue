@@ -88,4 +88,13 @@ onMounted(() => {
   countRowNumber()
   countTextLength()
 })
+
+let innerCode = computed(() => {
+  let { code } = props
+  return code
+})
+
+defineExpose({
+  innerCode
+})
 </script>

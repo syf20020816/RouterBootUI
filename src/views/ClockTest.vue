@@ -1,19 +1,129 @@
 <template>
-  <div id="clock-container">
-    <RBClock size="small"></RBClock>
-    <RBClock type="success"></RBClock>
-    <RBClock type="info" size="large"></RBClock>
+  <div id="text-container">
+    <div>
+      <RBText fontSize="2.5vw" :type="theme">
+        Clock 时间
+      </RBText>
+      <div>
+        <RBText :type="theme" fontSize="1.1vw">一个简单的格式化的时间组件,他可以嵌入到任意位置,Nav组件是一个很好的例子</RBText>
+      </div>
+    </div>
+
+    <div style="margin: 16px 0;">
+      <div>
+        <RBText fontSize="2vw" :type="theme">
+          示例
+        </RBText>
+      </div>
+      <div style="border: 2px dashed #192227; margin: 16px 30px 30px 0;padding: 16px;display: flex; align-items: center;justify-content: space-evenly;">
+        <RBClock size="small"></RBClock>
+        <RBClock type="success"></RBClock>
+        <RBClock type="info" size="large"></RBClock>
+      </div>
+
+      <div style="margin: 16px 30px 30px 0;">
+        <RBEditor :render-view="Md" :type="theme"></RBEditor>
+      </div>
+    </div>
+    <div>
+      <div>
+        <RBText fontSize="2vw" :type="theme">
+          API
+        </RBText>
+      </div>
+      <div>
+        <RBText fontSize="1.5vw" :type="theme">
+          Attributes 属性
+        </RBText>
+        <div>
+          <RBTable :tableData="AttrData" :type="theme">
+            <template #column>
+              <RBTableItem key="name" name="属性名" width="150px"></RBTableItem>
+              <RBTableItem key="des" name="说明" width="460px"></RBTableItem>
+              <RBTableItem key="type" name="类型" width="100px"></RBTableItem>
+              <RBTableItem key="able" name="可选值" width="200px"></RBTableItem>
+              <RBTableItem key="default" name="默认值" width="100px"></RBTableItem>
+            </template>
+          </RBTable>
+        </div>
+      </div>
+      <div>
+        <RBText fontSize="1.5vw" :type="theme">
+          Exposes 暴露事件
+        </RBText>
+        <div>
+          <div>
+            <RBTable :tableData="ExpData" :type="theme">
+              <template #column>
+                <RBTableItem key="name" name="事件名" width="150px"></RBTableItem>
+                <RBTableItem key="des" name="说明" width="460px"></RBTableItem>
+              </template>
+            </RBTable>
+          </div>
+        </div>
+      </div>
+      <div>
+        <RBText fontSize="1.5vw" :type="theme">
+          Slots 插槽
+        </RBText>
+        <div>
+          <div>
+            <RBTable :tableData="SlotData" :type="theme">
+              <template #column>
+                <RBTableItem key="name" name="插槽名" width="150px"></RBTableItem>
+                <RBTableItem key="des" name="说明" width="460px"></RBTableItem>
+              </template>
+            </RBTable>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'ClockTest'
+  name: 'ButtonTest'
 }
 </script>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import Md from '../code/Clock.md'
+import { indexStore } from '../store/indexPinia'
+const store = indexStore()
+let theme = computed(() => {
+  return store.theme[store.current]
+})
+const AttrData = reactive([
+  {
+    name: 'type',
+    des: '主题类型(primary|success|warning|error|info|dark)',
+    type: 'String',
+    able: 'primary|success|warning|error|info|dark',
+    default: 'primary'
+  },
+  {
+    name: 'size',
+    des: '大小(default|small|large)共三种',
+    type: 'String',
+    able: 'default|small|large',
+    default: 'default'
+  }
+])
+const ExpData = reactive([
+  {
+    name: '',
+    des: ''
+  }
+])
+const SlotData = reactive([
+  {
+    name: '',
+    des: ''
+  }
+])
 </script>
 
 <style lang="scss" scoped>

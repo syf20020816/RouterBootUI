@@ -32,26 +32,28 @@ $component: "table";
         &:hover{
           filter: brightness(1.2);
         }
-      }
-      @include buildWrap($component,'table'){
-        background-color: map-get($colors, $type );
-        @include buildWrap($component,'header'){
-          background-color: map-get($shadow-colors, $type,'deep' );
-
-          @include build($component,'row'){
-            
+        @include buildWrap($component,'table'){
+          background-color: map-get($colors, $type );
+          @include buildWrap($component,'header'){
             background-color: map-get($shadow-colors, $type,'deep' );
+  
+            @include build($component,'row'){
+              background-color: map-get($shadow-colors , $type,'deep' );
+              
+            }
+            @include build($component,'ceil'){
+              padding: $padding-default-h $padding-default-w;
+            }
           }
-          @include build($component,'ceil'){
-            padding: $padding-default-h $padding-default-w;
+          @include buildWrap($component,'body'){
+            @include build($component,'ceil'){
+              background-color: map-get($colors, $type );
+              border-bottom: 1px solid map-get($shadow-colors, $type,'deep' );
+              padding: $padding-default-h $padding-default-w;
+            }
           }
         }
-        @include buildWrap($component,'body'){
-          @include build($component,'ceil'){
-            border-bottom: 1px solid map-get($shadow-colors, $type,'deep' );
-            padding: $padding-default-h $padding-default-w;
-          }
-        }
+        
       }
       
       

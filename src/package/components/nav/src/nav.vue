@@ -36,7 +36,7 @@
         <slot name="navBox">
           <RBFlexbox :type="props.type">
             <template #flexItem>
-              <RBFlexboxItem :name="item.name" v-for="item in props.navNodeList" :key="item.id" :type="props.type"></RBFlexboxItem>
+              <RBFlexboxItem :name="item.name" v-for="item in props.navNodeList" :key="item.id" :type="props.type" :content="item.content"></RBFlexboxItem>
             </template>
           </RBFlexbox>
         </slot>
@@ -124,7 +124,7 @@ const tabbarNodeClick = (index: number) => {
   nodeList[index].classList.add(nameBuilder.when(componentName, 'active'))
   activeIndex.value = index
   isActive.value = true
-  emits('click')
+  emits('click', index)
 }
 
 onMounted(() => {})

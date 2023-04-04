@@ -20,7 +20,7 @@ export default {
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue'
 import { nameBuilder } from '../../../utils/index'
-import { RBCode } from '../../code'
+import { RBText } from '../../text'
 
 const componentName = 'explain'
 

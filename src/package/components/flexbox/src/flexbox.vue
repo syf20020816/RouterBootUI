@@ -18,8 +18,6 @@ export default {
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import { nameBuilder } from '../../../utils/index'
-import { RBText } from '../../text'
-import { RBIcon } from '../../icon'
 import { RBFlexboxItem } from '..'
 
 const componentName = 'flexbox'
