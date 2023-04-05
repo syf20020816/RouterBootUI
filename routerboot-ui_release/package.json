@@ -1,0 +1,60 @@
+{
+  "name": "routerboot-ui",
+  "private": false,
+  "version": "1.0.0",
+  "description": "RouterBoot UI lib For Vue3(Vue3+TS+Scss)",
+  "author": "syf20020816@outlook.com",
+  "license": "MIT",
+  "main": "lib/index.esm.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "routerboot-ui"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-image": "^3.0.2",
+    "lerna": "^6.6.1"
+  },
+  "homepage": "https://github.com/syf20020816/RouterBootUI.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syf20020816/RouterBootUI.git"
+  },
+  "files": [
+    "lib/*",
+    "README.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@lerna/project": "^6.4.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@vue/compiler-sfc": "^3.2.47",
+    "babel-loader": "^9.1.2",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "rollup": "^2.79.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "svg-sprite-loader": "^6.0.11",
+    "tern": "^0.24.3",
+    "typescript": "^5.0.3",
+    "url-loader": "^4.1.1",
+    "vue": "^3.2.47",
+    "vue-loader": "^17.0.1",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.2"
+  },
+  "scripts": {
+    "website-dev": "webpack server --config ./test/webpack.config.js",
+    "build:esm-bundle": "rollup -c ./build/rollup.config.bundle.js"
+  }
+}

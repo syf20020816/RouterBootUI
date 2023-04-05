@@ -1,0 +1,54 @@
+@use "./src/mixins/mixins.scss" as *;
+@use "./src/common/var.scss" as *;
+@use "./src/color/index.scss" as *;
+@use "sass:map";
+
+$component: "flexbox";
+
+@include buildContainer($component) {
+  cursor: pointer;
+  height: calc(100% - 2 * $margin-default-common);
+  width: calc(100% - 2 * $margin-default-common);
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.4s ease-in-out;
+  background-color: transparent;
+  display: inline-block;
+  text-align: center;
+  margin: $margin-default-common;
+  
+  
+  @include buildWrap($component, "box") {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    @include buildWrap("box", "item") {
+      list-style: none;
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      
+    }
+  }
+
+  @at-root {
+    @each $type in $theme-types {
+      @include when($component, $type) {
+        color: map-get($font-colors, $type);
+        background-color: map-get($colors, $type);
+        // box-shadow: 0px 0px 1px 2px map-get($shadow-colors , $type,'deep'),0px 0px 1px 1px map-get($shadow-colors , $type,'weak');
+        &:hover {
+          filter: brightness(1.2);
+        }
+        @include buildWrap("item", "header") {
+          background-color: map-get($shadow-colors, $type, "deep");
+        }
+      }
+    }
+  }
+}
+

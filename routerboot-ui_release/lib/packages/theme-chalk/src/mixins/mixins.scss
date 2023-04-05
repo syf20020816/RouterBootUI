@@ -1,0 +1,40 @@
+/**
+* ============================================
+* @author:syf20020816@outlook.com
+* @since:20230330
+* @version:1.0.0
+* @type:scss
+* @description:组件样式命名
+* ============================================
+*/
+
+@use "./config.scss" as *;
+
+//构建Container：index_container
+@mixin buildContainer($component) {
+  $containerName: $namespace + $common-separator + $component + $outter-separator + $container;
+  .#{$containerName} {
+    @content;
+  }
+}
+//构建wrap：index-left_wrap
+@mixin buildWrap($component, $element) {
+  $wrapName: $namespace + $common-separator + $component + $common-separator + $element + $outter-separator + $wrap;
+  .#{$wrapName} {
+    @content;
+  }
+}
+//构建常用：index--input
+@mixin build($component, $element) {
+  $elementName: $namespace + $common-separator + $component + $element-separator + $element;
+  .#{$elementName} {
+    @content;
+  }
+}
+
+@mixin when($element,$state) {
+  $whenName: $state-prefix + $element+$common-separator+$state;
+  .#{$whenName} {
+    @content;
+  }
+}

@@ -1,0 +1,89 @@
+@use "./src/mixins/mixins.scss" as *;
+@use "./src/common/var.scss" as *;
+@use "./src/color/index.scss" as *;
+@use "sass:map";
+
+$component: "code";
+
+@include buildContainer($component) {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  transition: all 0.4s ease-in-out;
+  background-color: transparent;
+  display: inline-block;
+  text-align: left;
+  @include buildWrap($component, "code") {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    @include buildWrap($component, "text") {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: $margin-default-h $margin-default-w;
+    }
+  }
+
+  @at-root {
+    @each $type in $theme-types {
+      @include when($component, $type) {
+        color: map-get($font-colors, $type);
+        background-color: map-get($colors, $type);
+        box-shadow: 0px 0px 1px 2px map-get($shadow-colors, $type, "deep"),
+          0px 0px 1px 1px map-get($shadow-colors, $type, "weak");
+        &:hover {
+          filter: brightness(1.2);
+        }
+        @include buildWrap($component, "code") {
+          background-color: transparent;
+          @include buildWrap($component, "row") {
+            min-width: 30px;
+            width: auto;
+            min-height: calc(100% - 2 * $padding-default-h);
+            padding: $padding-default-h calc($padding-default-w / 2);
+            background-color: map-get($shadow-colors, $type, "deep");
+            @include build("row", "item") {
+              height: auto;
+              line-height: 1.5em;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 16px;
+            }
+          }
+          pre {
+            text-indent: 0px;
+
+            color: map-get($font-colors, $type);
+            cursor: text;
+            font-size: 16px;
+            line-height: 1.5em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            outline: none;
+            // height: calc(100% - 2 * $padding-default-h);
+            width: calc(100% - 2 * $padding-default-w - 28px);
+            margin: 0;
+            padding: $padding-default-h $padding-default-w;
+            background-color: map-get($colors, $type);
+            counter-reset: line;
+            overflow: scroll;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+          }
+        }
+      }
+    }
+  }
+}

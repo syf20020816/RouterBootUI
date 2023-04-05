@@ -1,0 +1,57 @@
+@use './src/mixins/mixins.scss' as *;
+@use './src/common/var.scss' as *;
+@use 'sass:map';
+
+$component:'text';
+
+
+@font-face {
+  font-family: 'rb-text-bold';
+  src: url('../common/font/bold-black.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'rb-text';
+  src:
+  // url('../common/font/Web Open Font Format (.woff)/Yulong-Italic.woff'),
+  // url('../common/font/Web Open Font Format (.woff)/Yulong-Italic.woff2'),
+  url('../common/font/Web Open Font Format (.woff)/Yulong-Regular.woff'),
+  url('../common/font/Web Open Font Format (.woff)/Yulong-Regular.woff2'),
+  url('../common/font/TrueType (.ttf)/Yulong-Regular.ttf') format('truetype'),
+  url('../common/font/TrueType (.ttf)/Yulong-Italic.ttf') format('truetype');
+
+}
+
+
+
+@include buildContainer($component){
+  font-family:'rb-text-bold','rb-text',Verdana, Geneva, Tahoma  !important;
+  font-size: $font-default-size-flex;
+  display: inline-block;
+  height: auto;
+  width: auto;
+ line-height: 1.5em;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 100;
+  @at-root{
+    @include when($component,$m){
+      font-size: $font-default-size-flex;
+    }
+    @include when($component,$s){
+      font-size: $font-small-size-flex;
+    }
+    @include when($component,$l){
+      font-size: $font-large-size-flex;
+    }
+    @each $type in $theme-types{
+      @include when($component,$type){
+        color: map-get($font-colors , $type )
+      }
+    }
+  }
+}
+
+
+

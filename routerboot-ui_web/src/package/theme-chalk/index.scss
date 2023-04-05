@@ -1,0 +1,33 @@
+@use './icon.scss';
+@use './text.scss';
+@use './button.scss';
+@use './weather.scss';
+@use './introduction.scss';
+@use './nav.scss';
+@use './clock.scss';
+@use './flexbox.scss';
+@use './flexboxItem.scss';
+@use './code.scss';
+@use './calc.scss';
+@use './table.scss';
+@use './container.scss';
+@use './explain.scss';
+@use './abbr.scss';
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color:#263238;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  
+}
