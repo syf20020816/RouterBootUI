@@ -1,7 +1,7 @@
 {
   "name": "routerboot-ui",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "RouterBoot UI lib For Vue3(Vue3+TS+Scss)",
   "author": "syf20020816@outlook.com",
   "license": "MIT",
@@ -21,11 +21,7 @@
     "type": "git",
     "url": "https://github.com/syf20020816/RouterBootUI.git"
   },
-  "files": [
-    "lib/*",
-    "README.md",
-    "package.json"
-  ],
+  
   "dependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",

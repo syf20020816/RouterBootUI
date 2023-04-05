@@ -23,7 +23,13 @@
                     <RBButton :type="theme" @click="store.changeTheme()">点一下试试</RBButton>
                   </template>
                 </RBFlexboxItem>
-                <RBFlexboxItem :type="theme" :name="navList[4].name" content="去GitHub仓库看看源码-->"></RBFlexboxItem>
+                <RBFlexboxItem :type="theme" :name="navList[4].name">
+                  <template #content>
+                    <RBButton :type="theme">
+                      <a href="https://github.com/syf20020816/RouterBootUI" target="__blank">去GitHub仓库看看源码</a>
+                    </RBButton>
+                  </template>
+                </RBFlexboxItem>
               </template>
             </RBFlexbox>
           </template>
@@ -153,8 +159,18 @@ const toNavPage = (item: any) => {
     case 0:
       toPage('/')
       break
+    case 1:
+      toPage('/install')
+      break
+    case 2:
+      toPage('/text')
+      break
     case 3:
       store.changeTheme()
+      break
+    case 4:
+      window.location.href = 'https://github.com/syf20020816/RouterBootUI'
+
       break
     default:
       break

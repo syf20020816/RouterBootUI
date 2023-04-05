@@ -10,6 +10,7 @@
 
 import { RouteRecordRaw } from "vue-router";
 import TextTest from "../views/TextTest.vue";
+import Install from "../views/Install.vue";
 import IconTest from "../views/IconTest.vue";
 import ButtonTest from "../views/ButtonTest.vue";
 import WeatherTest from "../views/WeatherTest.vue";
@@ -90,5 +91,9 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/abbr",
     component: AbbrTest,
+  },
+  {
+    path: "/install",
+    component: Install,
   },
 ];

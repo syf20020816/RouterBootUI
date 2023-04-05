@@ -1,0 +1,17 @@
+
+@forward 'routerboot-ui/packages/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #2a6f94,
+    'success': #97cd47,
+    'warning': #f8805d,
+    'error': #ec5e65,
+    'info': #788a93,
+    'dark':#21282c,
+  ),
+);
+
+
+@use "routerboot-ui/packages/theme-chalk/index.scss" as *;
+

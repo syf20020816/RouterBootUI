@@ -1,26 +1,31 @@
 # README
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122" height="20" role="img" aria-label="routerboot-ui: 1.0.0"><title>routerboot-ui: 1.0.0</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="122" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="83" height="20" fill="#555"/><rect x="83" width="39" height="20" fill="#fe7d37"/><rect width="122" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="425" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="730">routerboot-ui</text><text x="425" y="140" transform="scale(.1)" fill="#fff" textLength="730">routerboot-ui</text><text aria-hidden="true" x="1015" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="290">1.0.0</text><text x="1015" y="140" transform="scale(.1)" fill="#fff" textLength="290">1.0.0</text></g><script xmlns=""/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122" height="20" role="img" aria-label="routerboot-ui: 1.0.3"><title>routerboot-ui: 1.0.3</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="122" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="83" height="20" fill="#555"/><rect x="83" width="39" height="20" fill="#fe7d37"/><rect width="122" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="425" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="730">routerboot-ui</text><text x="425" y="140" transform="scale(.1)" fill="#fff" textLength="730">routerboot-ui</text><text aria-hidden="true" x="1015" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="290">1.0.3</text><text x="1015" y="140" transform="scale(.1)" fill="#fff" textLength="290">1.0.3</text></g><script xmlns=""/></svg>
 
 - author：syf20020816@outlook.com
 - docName：routerboot-ui README
 - createDate：20230405
 - updateDate：20230405
-- version：1.0.0
+- version：1.0.3
 - des-tag：正式版
 - email：syf20020816@outlook.com
 
 ## 版本更新说明(update introduction)
 
-| 版本(version)         | 1.0.0        |
+| 版本(version)         | 1.0.3        |
 | --------------------- | ------------ |
 | 版本说明(version tag) | 正式版 |
 | 更新时间(update date) | 20230405    |
 | 技术(technology)      | Vue3+TS+SCSS+Vite |
 
+可用版本(work version):
+1. 0.0.3(准备废弃,will abandon)
+2. 1.0.3
+
 更新点(update points)：
-
-
+1. 修正文档(1.0.3)
+2. 修复导入，修复文件缺失(1.0.3)
+3. 自定义主题色(1.0.3)
 
 ## 安装(install)
 
@@ -40,7 +45,7 @@ import App from "./App.vue";
 //import routerboot-ui
 import RouterBootUI from "routerboot-ui";
 //import routerboot-ui style file
-import "routerboot-ui/lib/packages/theme-chalk/index.scss";
+import "routerboot-ui/packages/theme-chalk/index.scss";
 //create app--------------------
 const app = createApp(App);
 //app use--------------------
@@ -124,13 +129,26 @@ export const indexStore = defineStore("index", {
 ## 自定义主题色
 
 编写一个global.scss,然后导入main.ts
+
+> 注意：当前自定义主题色仍存在一定问题
+
 ```scss
 /* 只需要重写你需要的即可 */
-@forward 'routerboot-ui/theme-chalk/src/common/var.scss' with (
+
+@forward 'routerboot-ui/packages/theme-chalk/src/common/var.scss' with (
   $colors: (
-    'primary': #49c149
-    'info': #49c149
+    'white': #ffffff,
+    'black': #000000,
+    'primary': #2a6f94,
+    'success': #97cd47,
+    'warning': #f8805d,
+    'error': #ec5e65,
+    'info': #788a93,
+    'dark':#21282c,
   ),
 );
+
+
+@use "routerboot-ui/packages/theme-chalk/index.scss" as *;
 
 ```
